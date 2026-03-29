@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dwc2k2soawpml"]
+
+[ext_resource type="Script" uid="uid://bkhbfb3mtnay4" path="res://MainCharacter.cs" id="1_wmkwl"]
+[ext_resource type="Texture2D" uid="uid://bwlsm6a2r8s0v" path="res://icon.svg" id="2_uvl38"]
+[ext_resource type="Script" uid="uid://c8i3c021qown1" path="res://Sprite2d.cs" id="3_uvl38"]
+[ext_resource type="Script" uid="uid://2plyrw4l28e7" path="res://Camera2d.cs" id="4_2q423"]
+
+[node name="MainCharacter" type="CharacterBody2D" unique_id=1724258530]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_wmkwl")
+SizeStep = 0.5
+MinSize = 0.5
+MaxSize = 1.5
+BaseMaxSpeed = 1020.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356832503]
+texture = ExtResource("2_uvl38")
+script = ExtResource("3_uvl38")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=728500091]
+script = ExtResource("4_2q423")
