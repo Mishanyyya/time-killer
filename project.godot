@@ -11,14 +11,12 @@ config_version=5
 [application]
 
 config/name="TimeKiller"
-run/main_scene="uid://mp0svdcffj0b"
+run/main_scene="uid://dwygieo0q3ral"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1600
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -65,3 +63,4 @@ dash={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

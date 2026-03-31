@@ -1,8 +1,9 @@
-[gd_scene format=4 uid="uid://mp0svdcffj0b"]
+[gd_scene format=3 uid="uid://dwygieo0q3ral"]
 
-[ext_resource type="PackedScene" uid="uid://dwc2k2soawpml" path="res://main_character.tscn" id="2_1lwx6"]
-[ext_resource type="Texture2D" uid="uid://bbpd11wgbewnt" path="res://Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="3_1lwx6"]
-[ext_resource type="PackedScene" uid="uid://b6xgrj7nw48i8" path="res://enemy.tscn" id="4_dsnr4"]
+[ext_resource type="Script" uid="uid://qkugjk26qpwf" path="res://WorldGenerator.cs" id="1_yncnp"]
+[ext_resource type="Texture2D" uid="uid://bbpd11wgbewnt" path="res://Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_g11jo"]
+[ext_resource type="PackedScene" uid="uid://b6xgrj7nw48i8" path="res://enemy.tscn" id="2_rane3"]
+[ext_resource type="PackedScene" uid="uid://dwc2k2soawpml" path="res://main_character.tscn" id="3_ybd1w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4tg7h"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -36,8 +37,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dsnr4"]
-texture = ExtResource("3_1lwx6")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n2ho"]
+texture = ExtResource("2_g11jo")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4tg7h")
 1:0/0 = 0
@@ -178,24 +179,20 @@ texture = ExtResource("3_1lwx6")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_lf0gk"]
+[sub_resource type="TileSet" id="TileSet_rane3"]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_dsnr4")
+sources/0 = SubResource("TileSetAtlasSource_1n2ho")
 
-[node name="World" type="Node2D" unique_id=1419199976]
+[node name="WorldGenerator" type="Node2D" unique_id=1638449403 node_paths=PackedStringArray("tileMapLayer")]
+script = ExtResource("1_yncnp")
+tileMapLayer = NodePath("PathLayer")
+enemyScene = ExtResource("2_rane3")
+playerScene = ExtResource("3_ybd1w")
 
-[node name="PathLayer" type="TileMapLayer" parent="." unique_id=1023859419]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1730632681]
+
+[node name="PathLayer" type="TileMapLayer" parent="." unique_id=669827178]
 physics_interpolation_mode = 1
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAADAAUAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAcAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAADAAYAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAAEAAUAAAABAAAAAAAEAAYAAAABAAAAAAAFAAYAAAABAAAAAAAFAAUAAAABAAAAAAAGAAUAAAABAAAAAAAGAAYAAAABAAAAAAAHAAYAAAABAAAAAAAHAAUAAAABAAAAAAAIAAUAAAABAAAAAAAIAAYAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_lf0gk")
-
-[node name="Enemy" parent="." unique_id=1205081504 instance=ExtResource("4_dsnr4")]
-position = Vector2(410, 617)
-
-[node name="MainCharacter" parent="." unique_id=1724258530 instance=ExtResource("2_1lwx6")]
-position = Vector2(571, 274)
-
-[node name="Enemy2" parent="." unique_id=1180970325 instance=ExtResource("4_dsnr4")]
-position = Vector2(750, 732)
+tile_set = SubResource("TileSet_rane3")

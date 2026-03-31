@@ -5,17 +5,20 @@
 [ext_resource type="Script" uid="uid://c8i3c021qown1" path="res://Sprite2d.cs" id="3_uvl38"]
 [ext_resource type="Script" uid="uid://2plyrw4l28e7" path="res://Camera2d.cs" id="4_2q423"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q423"]
+
 [node name="MainCharacter" type="CharacterBody2D" unique_id=1724258530]
-scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wmkwl")
-SizeStep = 0.5
-MinSize = 0.5
-MaxSize = 1.5
 BaseMaxSpeed = 1020.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356832503]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_uvl38")
 script = ExtResource("3_uvl38")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=728500091]
 script = ExtResource("4_2q423")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1831494120]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_2q423")
