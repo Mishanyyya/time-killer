@@ -47,9 +47,13 @@ public partial class MainCharacter : CharacterBody2D
     private const string SizeUpAction = "size_up";
     private const string SizeDownAction = "size_down";
 
+    public static MainCharacter Instance;
+
 	public override void _Ready()
 	{
         EnsureResizeActions();
+
+        Instance = this;
 	}
 
 	public override void _PhysicsProcess(double delta)

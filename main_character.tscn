@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q423"]
 
-[node name="MainCharacter" type="CharacterBody2D" unique_id=1724258530]
+[node name="main_character" type="CharacterBody2D" unique_id=1724258530]
 script = ExtResource("1_wmkwl")
 BaseMaxSpeed = 1020.0
 

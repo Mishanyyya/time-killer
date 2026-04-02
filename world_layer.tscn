@@ -1,9 +1,6 @@
-[gd_scene format=3 uid="uid://dwygieo0q3ral"]
+[gd_scene format=4 uid="uid://c7d24x4jcxffl"]
 
-[ext_resource type="Script" uid="uid://qkugjk26qpwf" path="res://WorldGenerator.cs" id="1_yncnp"]
-[ext_resource type="Texture2D" uid="uid://bbpd11wgbewnt" path="res://Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_g11jo"]
-[ext_resource type="PackedScene" uid="uid://b6xgrj7nw48i8" path="res://enemy.tscn" id="2_rane3"]
-[ext_resource type="PackedScene" uid="uid://dwc2k2soawpml" path="res://main_character.tscn" id="3_ybd1w"]
+[ext_resource type="Texture2D" uid="uid://bbpd11wgbewnt" path="res://Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_se8i6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4tg7h"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -37,8 +34,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n2ho"]
-texture = ExtResource("2_g11jo")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gk7ml"]
+texture = ExtResource("1_se8i6")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4tg7h")
 1:0/0 = 0
@@ -179,23 +176,15 @@ texture = ExtResource("2_g11jo")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_rane3"]
+[sub_resource type="TileSet" id="TileSet_tbd5q"]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_1n2ho")
+sources/0 = SubResource("TileSetAtlasSource_gk7ml")
 
-[node name="WorldGenerator" type="Node2D" unique_id=1638449403 node_paths=PackedStringArray("tileMapLayer", "enemyContainer")]
-script = ExtResource("1_yncnp")
-tileMapLayer = NodePath("PathLayer")
-enemyScene = ExtResource("2_rane3")
-playerScene = ExtResource("3_ybd1w")
-enemyContainer = NodePath("enemyContainer")
+[node name="WorldLayer" type="Node2D" unique_id=1716055870]
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1730632681]
-
-[node name="PathLayer" type="TileMapLayer" parent="." unique_id=669827178]
+[node name="PathLayer" type="TileMapLayer" parent="." unique_id=630944834]
 physics_interpolation_mode = 1
 scale = Vector2(5, 5)
-tile_set = SubResource("TileSet_rane3")
-
-[node name="enemyContainer" type="Node2D" parent="." unique_id=1733426510]
+tile_map_data = PackedByteArray("AAADAAUAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAcAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAADAAYAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAAEAAUAAAABAAAAAAAEAAYAAAABAAAAAAAFAAYAAAABAAAAAAAFAAUAAAABAAAAAAAGAAUAAAABAAAAAAAGAAYAAAABAAAAAAAHAAYAAAABAAAAAAAHAAUAAAABAAAAAAAIAAUAAAABAAAAAAAIAAYAAAABAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tbd5q")
